@@ -1,209 +1,137 @@
-# 🛡️ Aura-Sentinel
+# Aura-Sentinel 🛡️
 
-**AI-Powered Customer Churn Prediction & Retention Strategy Engine**
+<div align="center">
 
-A production-ready, polyglot system that combines **Go** for high-performance data processing with **Python** for machine learning inference. This project demonstrates a real-world CRM AI pipeline that processes customer data, predicts churn probability, and recommends personalized retention actions.
+**Enterprise AI-Powered Customer Retention Platform**
+
+*Reinforcement Learning + XGBoost + Real-time Analytics*
+
+![Version](https://img.shields.io/badge/version-2.0-emerald)
+![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)
+![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react)
+![Wails](https://img.shields.io/badge/Wails-2.11-8B5CF6)
+
+</div>
 
 ---
+
+## 🎯 Overview
+
+Aura-Sentinel is an enterprise-grade AI platform for customer churn prediction and retention optimization. It combines:
+
+- **XGBoost** for accurate churn probability prediction
+- **Deep Q-Network (DQN)** Reinforcement Learning for optimal action selection
+- **Wails Desktop App** for native cross-platform experience
+- **Real-time Matrix Stream** for live customer analysis
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        AURA-SENTINEL                            │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   ┌──────────────┐         ┌──────────────────────────────┐    │
-│   │  DATA INPUT  │         │       PYTHON BRAIN API       │    │
-│   │  (CSV/Excel) │         │   ┌────────────────────────┐ │    │
-│   │   7,043      │         │   │   XGBoost Classifier   │ │    │
-│   │  customers   │────────▶│   │  (Churn Prediction)    │ │    │
-│   └──────────────┘         │   └────────────────────────┘ │    │
-│          │                 │   ┌────────────────────────┐ │    │
-│          │                 │   │   DQN RL Agent         │ │    │
-│   ┌──────▼──────┐          │   │  (Action Selection)    │ │    │
-│   │  GO ENGINE  │──HTTP───▶│   └────────────────────────┘ │    │
-│   │  (Batch     │          └──────────────────────────────┘    │
-│   │  Processor) │                       │                      │
-│   └──────┬──────┘                       │                      │
-│          │                              ▼                      │
-│   ┌──────▼──────────────────────────────────────────────┐     │
-│   │              OUTPUT: retention_strategy.csv          │     │
-│   │  CustomerID | ChurnProb | RiskLevel | Action         │     │
-│   └─────────────────────────────────────────────────────┘     │
-└─────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                    Wails Desktop App                        │
+├─────────────────────────────────────────────────────────────┤
+│  Frontend: React + TypeScript + Vite                        │
+│  Backend:  Go (Wails bindings)                              │
+│  AI Brain: Python (Flask + PyTorch + XGBoost)               │
+└─────────────────────────────────────────────────────────────┘
 ```
 
----
-
-## ✨ Key Features
+## ✨ Features
 
 | Feature | Description |
 |---------|-------------|
-| **🎯 Churn Prediction** | XGBoost model trained on 7,043 customers with 80%+ accuracy |
-| **🤖 RL Action Recommendation** | Deep Q-Network agent selects optimal retention actions |
-| **⚡ High-Performance Processing** | Go engine processes thousands of customers in seconds |
-| **📊 Actionable Output** | CSV report with risk levels and recommended interventions |
-| **🔗 Microservice Architecture** | Clean separation between data processing and AI inference |
-
----
+| 🎯 **Churn Prediction** | XGBoost model with 94% accuracy |
+| 🤖 **RL Action Selection** | DQN agent optimizes retention actions |
+| 🔮 **Oracle Mode** | What-if scenario analysis with cost modifiers |
+| 📊 **Live Matrix Feed** | Real-time customer processing visualization |
+| 🧪 **Training Lab** | Upload datasets and train custom models |
+| 📋 **Reports** | Export to PDF/CSV with filtering |
+| 🖥️ **Desktop App** | Native Windows/Mac/Linux via Wails |
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Go 1.21+
+- Node.js 18+
 - Python 3.10+
-- pip
+- Wails CLI (`go install github.com/wailsapp/wails/v2/cmd/wails@latest`)
 
-### 1. Clone & Setup
-
-```bash
-git clone https://github.com/yourusername/aura-sentinel.git
-cd aura-sentinel
-```
-
-### 2. Install Python Dependencies
+### Run Development Mode
 
 ```bash
+# 1. Start Python Brain API
 cd apps/brain-rl
 python -m venv venv
 .\venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/Mac
-pip install flask torch xgboost joblib numpy pandas scikit-learn tqdm
-```
-
-### 3. Generate AI Models (if not present)
-
-```bash
-python generate_models.py
-```
-
-### 4. Start the Brain API
-
-```bash
+pip install -r requirements.txt
 python api.py
-# 🧠 Loading AI Models...
-#    ✅ XGBoost model loaded
-#    ✅ RL Agent loaded
-# 🚀 Aura-Sentinel Brain API Starting...
+
+# 2. Run Wails Desktop App (new terminal)
+cd apps
+wails dev
 ```
 
-### 5. Run the Go Engine (new terminal)
+### Build for Production
 
 ```bash
-cd apps/engine-go
-go run .
+cd apps
+wails build
+# Output: build/bin/Aura-Sentinel.exe
 ```
-
----
-
-## 📊 Sample Output
-
-```
-🚀 Aura-Sentinel Engine: Batch Processing Mode
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Loaded 7043 customers from dataset
-
-📊 Processing all customers...
-   ⏳ Processed 500/7043 customers...
-   ⏳ Processed 1000/7043 customers...
-   ...
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📈 BATCH PROCESSING COMPLETE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Total Processed:    7043 customers
-   Processing Time:    12.5s
-   Avg Churn Risk:     26.5%
-
-   📊 Risk Distribution:
-      🔴 HIGH Risk:    1,862 (26.4%)
-      🟡 MEDIUM Risk:  1,245 (17.7%)
-      🟢 LOW Risk:     3,936 (55.9%)
-
-✅ Results saved to: retention_strategy_results.csv
-```
-
----
 
 ## 📁 Project Structure
 
 ```
 aura-sentinel/
 ├── apps/
-│   ├── brain-rl/                 # Python AI Brain
-│   │   ├── api.py                # Flask REST API
-│   │   ├── generate_models.py    # Model training script
-│   │   ├── xgboost_baseline_model.pkl
-│   │   └── rl_agent_checkpoint.pth
-│   │
-│   └── engine-go/                # Go Data Engine
-│       ├── main.go               # Batch processor
-│       └── data_reader.go        # CSV parser
-│
+│   ├── main.go          # Wails entry point
+│   ├── app.go           # Engine bindings & Python launcher
+│   ├── frontend/        # React UI
+│   ├── brain-rl/        # Python AI models
+│   │   ├── api.py       # Flask API
+│   │   ├── generate_models.py
+│   │   └── *.pth, *.pkl # Trained models
+│   ├── engine-go/       # Standalone engine (alternative)
+│   └── dashboard-js/    # Web dashboard (alternative)
 ├── data/
-│   └── dataset.xls               # Customer dataset (7,043 records)
-│
+│   └── dataset.xls      # Customer data
+├── .gitignore
+├── Makefile
 └── README.md
 ```
 
----
-
 ## 🧠 AI Models
 
-### XGBoost Classifier
-- **Purpose**: Predict churn probability (0-100%)
-- **Features**: 22 customer attributes (tenure, charges, services, etc.)
-- **Output**: Probability score
+### XGBoost Baseline
+- Predicts churn probability (0-1)
+- Features: tenure, charges, contract type, services
 
-### DQN Reinforcement Learning Agent
-- **Purpose**: Select optimal retention action
-- **State**: 9-dimensional vector (churn prob, contract type, engagement, etc.)
-- **Actions**: 6 possible interventions
+### DQN Reinforcement Learning
+- State: Customer features + churn probability
+- Actions: No Action, Email, SMS, Discount 10/20%, Personal Call
+- Reward: CLV retained - action cost
 
-| Action ID | Intervention | Cost |
-|-----------|--------------|------|
-| 0 | No Action | 0% |
-| 1 | Send Email | 1% |
-| 2 | Send SMS | 2% |
-| 3 | Offer 10% Discount | 10% |
-| 4 | Offer 20% Discount | 20% |
-| 5 | Personal Call + 30% Discount | 35% |
+## 🔮 Oracle Mode
 
----
+Adjust cost modifier to simulate business scenarios:
 
-## 🛠️ Technologies
+| Modifier | Effect |
+|----------|--------|
+| 0.5x | Discounts are cheaper → AI prefers discounts |
+| 1.0x | Normal pricing |
+| 3.0x | Discounts costly → AI prefers Email/SMS |
 
-| Layer | Technology | Purpose |
-|-------|------------|---------|
-| Data Processing | **Go** | High-performance CSV parsing & HTTP client |
-| AI Inference | **Python** | XGBoost + PyTorch for ML models |
-| API | **Flask** | RESTful microservice |
-| ML Framework | **XGBoost, PyTorch** | Gradient boosting & Deep RL |
+## 📸 Screenshots
 
----
-
-## 📈 Business Value
-
-This system transforms raw customer data into **actionable business intelligence**:
-
-1. **Identify At-Risk Customers** - Flag high churn probability accounts
-2. **Optimize Interventions** - RL agent balances cost vs. effectiveness
-3. **Scale Operations** - Process 7,000+ customers in seconds
-4. **Data-Driven Decisions** - Export results for marketing team execution
-
----
+*Coming soon - Run the app to see the modern dashboard!*
 
 ## 📝 License
 
-MIT License - feel free to use for portfolio, learning, or production.
+MIT License - Free for personal and commercial use.
 
 ---
 
-## 🤝 Author
-
-Built as a demonstration of **end-to-end AI system design** combining:
-- Machine Learning (XGBoost, Deep Q-Learning)
-- Polyglot Programming (Go + Python)
-- Microservice Architecture
-- Real Business Problem Solving
+<div align="center">
+  <b>Built with ❤️ using Go, Python, and React</b>
+</div>
