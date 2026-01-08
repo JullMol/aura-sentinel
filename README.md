@@ -1,130 +1,216 @@
-# Aura-Sentinel 🛡️
+# 🛡️ Aura-Sentinel
 
 <div align="center">
 
-**Enterprise AI-Powered Customer Retention Platform**
+<img src="https://img.shields.io/badge/AI-Powered-10b981?style=for-the-badge&logo=openai&logoColor=white" alt="AI Powered">
+<img src="https://img.shields.io/badge/Go-1.21+-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go">
+<img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+<img src="https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React">
+<img src="https://img.shields.io/badge/Wails-2.11-8B5CF6?style=for-the-badge" alt="Wails">
 
-*Reinforcement Learning + XGBoost + Real-time Analytics*
+---
 
-![Version](https://img.shields.io/badge/version-2.0-emerald)
-![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)
-![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react)
-![Wails](https://img.shields.io/badge/Wails-2.11-8B5CF6)
+### **Enterprise AI-Powered Customer Retention Platform**
+
+*Combining XGBoost + Deep Q-Network Reinforcement Learning + Real-time Analytics*
+
+[Features](#-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [AI Models](#-ai-models)
 
 </div>
 
 ---
 
-## 🎯 Overview
+## 🎯 What is Aura-Sentinel?
 
-Aura-Sentinel is an enterprise-grade AI platform for customer churn prediction and retention optimization. It combines:
+Aura-Sentinel is an **enterprise-grade AI platform** for customer churn prediction and retention optimization. It helps businesses:
 
-- **XGBoost** for accurate churn probability prediction
-- **Deep Q-Network (DQN)** Reinforcement Learning for optimal action selection
-- **Wails Desktop App** for native cross-platform experience
-- **Real-time Matrix Stream** for live customer analysis
+- 📉 **Predict** which customers are likely to churn
+- 🎯 **Decide** the optimal retention action for each customer
+- 💰 **Maximize** revenue saved while minimizing intervention costs
+- 📊 **Visualize** real-time analysis in a modern dashboard
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎯 **Churn Prediction**
+XGBoost model with **94% accuracy** predicting customer churn probability
+
+### 🤖 **RL Action Selection**
+Deep Q-Network agent optimizes retention actions (Email, SMS, Discounts, Personal Call)
+
+### 🔮 **Oracle Mode**
+What-if scenario analysis - adjust cost modifiers to see how AI decisions change
+
+</td>
+<td width="50%">
+
+### 📊 **Live Matrix Feed**
+Real-time customer processing with animated visualization
+
+### 🧪 **Training Lab**
+Upload custom datasets and train new models with one click
+
+### 📋 **Reports & Export**
+Filter by risk level, export to **PDF** and **CSV**
+
+</td>
+</tr>
+</table>
+
+---
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Wails Desktop App                        │
-├─────────────────────────────────────────────────────────────┤
-│  Frontend: React + TypeScript + Vite                        │
-│  Backend:  Go (Wails bindings)                              │
-│  AI Brain: Python (Flask + PyTorch + XGBoost)               │
-└─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│                    AURA-SENTINEL DESKTOP APP                        │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│    ┌──────────────┐     ┌──────────────┐     ┌──────────────┐       │
+│    │   FRONTEND   │     │   BACKEND    │     │   AI BRAIN   │       │
+│    │              │     │              │     │              │       │
+│    │  React 18    │◄───►│   Go 1.21    │◄───►│  Python 3.10 │       │
+│    │  TypeScript  │     │   Wails 2.11 │     │  Flask API   │       │
+│    │  Recharts    │     │   Bindings   │     │  PyTorch     │       │
+│    │  Lucide      │     │              │     │  XGBoost     │       │
+│    └──────────────┘     └──────────────┘     └──────────────┘       │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
-## ✨ Features
-
-| Feature | Description |
-|---------|-------------|
-| 🎯 **Churn Prediction** | XGBoost model with 94% accuracy |
-| 🤖 **RL Action Selection** | DQN agent optimizes retention actions |
-| 🔮 **Oracle Mode** | What-if scenario analysis with cost modifiers |
-| 📊 **Live Matrix Feed** | Real-time customer processing visualization |
-| 🧪 **Training Lab** | Upload datasets and train custom models |
-| 📋 **Reports** | Export to PDF/CSV with filtering |
-| 🖥️ **Desktop App** | Native Windows/Mac/Linux via Wails |
+---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Go 1.21+
-- Node.js 18+
-- Python 3.10+
-- Wails CLI (`go install github.com/wailsapp/wails/v2/cmd/wails@latest`)
 
-### Run Development Mode
+| Tool | Version | Install Command |
+|------|---------|----------------|
+| Go | 1.21+ | [Download](https://golang.org/dl/) |
+| Node.js | 18+ | [Download](https://nodejs.org/) |
+| Python | 3.10+ | [Download](https://python.org/) |
+| Wails CLI | 2.11 | `go install github.com/wailsapp/wails/v2/cmd/wails@latest` |
+
+### 1️⃣ Start Python Brain API
 
 ```bash
-# 1. Start Python Brain API
 cd apps/brain-rl
 python -m venv venv
-.\venv\Scripts\activate  # Windows
+.\venv\Scripts\activate    # Windows
 pip install -r requirements.txt
 python api.py
+```
 
-# 2. Run Wails Desktop App (new terminal)
+### 2️⃣ Run Wails Desktop App
+
+```bash
 cd apps
 wails dev
 ```
 
-### Build for Production
+### 3️⃣ Build for Production
 
 ```bash
 cd apps
 wails build
-# Output: build/bin/Aura-Sentinel.exe
 ```
+
+Output: `build/bin/Aura-Sentinel.exe`
+
+---
 
 ## 📁 Project Structure
 
 ```
 aura-sentinel/
-├── apps/
-│   ├── main.go          # Wails entry point
-│   ├── app.go           # Engine bindings & Python launcher
-│   ├── frontend/        # React UI
-│   ├── brain-rl/        # Python AI models
-│   │   ├── api.py       # Flask API
-│   │   ├── generate_models.py
-│   │   └── *.pth, *.pkl # Trained models
-│   ├── engine-go/       # Standalone engine (alternative)
-│   └── dashboard-js/    # Web dashboard (alternative)
-├── data/
-│   └── dataset.xls      # Customer data
-├── .gitignore
-├── Makefile
-└── README.md
+├── 📂 apps/
+│   ├── 📄 main.go           # Wails entry point
+│   ├── 📄 app.go            # Engine bindings & API
+│   ├── 📂 frontend/         # React TypeScript UI
+│   │   ├── src/App.tsx      # Main dashboard component
+│   │   └── src/App.css      # Premium dark theme
+│   ├── 📂 brain-rl/         # Python AI models
+│   │   ├── api.py           # Flask REST API
+│   │   ├── *.pth            # PyTorch DQN weights
+│   │   └── *.pkl            # XGBoost model
+│   └── 📂 engine-go/        # Standalone batch processor
+├── 📂 data/
+│   └── dataset.xls          # Telco customer data
+└── 📄 README.md
 ```
+
+---
 
 ## 🧠 AI Models
 
-### XGBoost Baseline
-- Predicts churn probability (0-1)
-- Features: tenure, charges, contract type, services
+### XGBoost Churn Predictor
 
-### DQN Reinforcement Learning
-- State: Customer features + churn probability
-- Actions: No Action, Email, SMS, Discount 10/20%, Personal Call
-- Reward: CLV retained - action cost
+| Metric | Value |
+|--------|-------|
+| Accuracy | **94%** |
+| Features | 22 customer attributes |
+| Output | Churn probability (0.0 - 1.0) |
+
+### Deep Q-Network (DQN) Agent
+
+| Component | Description |
+|-----------|-------------|
+| **State** | 9 features (churn prob, tenure, charges, contract, etc) |
+| **Actions** | 6 retention actions with varying costs |
+| **Reward** | Customer Lifetime Value saved - action cost |
+| **Network** | 4-layer MLP (128→128→64→6) |
+
+### Available Actions
+
+| ID | Action | Cost |
+|----|--------|------|
+| 0 | No Action | 0% |
+| 1 | Send Email | 1% |
+| 2 | Send SMS | 2% |
+| 3 | Offer 10% Discount | 10% |
+| 4 | Offer 20% Discount | 20% |
+| 5 | Personal Call + 30% Discount | 35% |
+
+---
 
 ## 🔮 Oracle Mode
 
-Adjust cost modifier to simulate business scenarios:
+Adjust the cost modifier to simulate different business scenarios:
 
 | Modifier | Effect |
 |----------|--------|
-| 0.5x | Discounts are cheaper → AI prefers discounts |
-| 1.0x | Normal pricing |
-| 3.0x | Discounts costly → AI prefers Email/SMS |
+| **0.5x** | Discounts are cheaper → AI prefers discounts |
+| **1.0x** | Normal business pricing |
+| **3.0x** | Discounts are costly → AI prefers Email/SMS |
 
-## 📸 Screenshots
+This demonstrates how the RL agent adapts its strategy based on business constraints.
 
-*Coming soon - Run the app to see the modern dashboard!*
+---
+
+## �️ Dashboard Pages
+
+| Page | Description |
+|------|-------------|
+| **Dashboard** | Live matrix feed, Oracle control, charts |
+| **Analytics** | Retention trends, AI performance metrics |
+| **Training Lab** | Upload datasets, train new models |
+| **Reports** | Filter & export customer data |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18, TypeScript, Vite, Recharts, Lucide Icons
+- **Desktop**: Wails 2.11 (Go + WebView2)
+- **AI Backend**: Python, Flask, PyTorch, XGBoost, NumPy
+- **Styling**: Custom CSS with glassmorphism, dark theme
+
+---
 
 ## 📝 License
 
@@ -133,5 +219,9 @@ MIT License - Free for personal and commercial use.
 ---
 
 <div align="center">
-  <b>Built with ❤️ using Go, Python, and React</b>
+
+**Built with ❤️ using Go, Python, and React**
+
+*A modern AI-powered desktop application for enterprise customer retention*
+
 </div>
